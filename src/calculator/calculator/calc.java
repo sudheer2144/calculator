@@ -2,10 +2,10 @@ package calculator;
 
 public class calc extends javax.swing.JFrame {
 
-    private double second;
-    private String operation;
-    private double first;
-    private double result;
+    private double first;//this variable used to store the first value
+    private double second;//this variable used to store the second value
+    private String operation;//thsi variable holds the operation
+    private double result;//this variable used to store the final result
 
     public calc() {
         initComponents();
@@ -316,64 +316,67 @@ public class calc extends javax.swing.JFrame {
 
         pack();
     }
-
-    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {
-        String number=jTextField1.getText()+btn2.getText();
-        jTextField1.setText(number);
-    }
-
-    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {
+	
+   //these will add the String showed on the buttons to the already available string in textfield 
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) { //'1'
             String number=jTextField1.getText()+btn1.getText();
             jTextField1.setText(number);
     }
 
-    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) { //'2'
+        String number=jTextField1.getText()+btn2.getText();
+        jTextField1.setText(number);
+    }
+
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) { //'3'
          String number=jTextField1.getText()+btn3.getText();
             jTextField1.setText(number);
     }
 
-    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) { //'4'
         String number=jTextField1.getText()+btn4.getText();
             jTextField1.setText(number);
     }
 
-    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) { //'5'
         String number=jTextField1.getText()+btn5.getText();
             jTextField1.setText(number);
     }
 
-    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) { //'6'
         String number=jTextField1.getText()+btn6.getText();
             jTextField1.setText(number);
     }
 
-    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) { //'7'
         String number=jTextField1.getText()+btn7.getText();
             jTextField1.setText(number);
     }
 
-    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) { //'8'
         String number=jTextField1.getText()+btn8.getText();
             jTextField1.setText(number);
     }
 
-    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) { //'9'
         String number=jTextField1.getText()+btn9.getText();
             jTextField1.setText(number);
     }
 
-    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) { //cleares the textfield
         jTextField1.setText(null);
     }
 
-    private void btnDotActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnDotActionPerformed(java.awt.event.ActionEvent evt) { //adds a dot '.' to the string available in the textfield
        String number=jTextField1.getText()+btnDot.getText();
-				jTextField1.setText(number);
+       jTextField1.setText(number);
     }
 
+    //whenever the '=' button actions performed it will get the  'first'(already saved)  and typecast the string available in the 'textfield' to (double)'second' value and does the operation based on the value stored in 'operation' variable and will be showed in the textfield.
     private void btnEqualActionPerformed(java.awt.event.ActionEvent evt) {
-        String answer;
-				second=Double.parseDouble(jTextField1.getText());
+        			String answer;//this is used to store the 'result' in string format and passes it to textfield
+				second=Double.parseDouble(jTextField1.getText());//typescasts the available string in the textbox to (double) and stores in 'second' variable
 				if("+".equals(operation))
 				{
 					result=first+second;
@@ -408,6 +411,7 @@ public class calc extends javax.swing.JFrame {
 				
     }
 
+    //this button will clear the last value of the string avilable in the textfield
     private void btnBackSpaceActionPerformed(java.awt.event.ActionEvent evt) {
         String backSpace=null;
 	if(jTextField1.getText().length()>0){
@@ -418,45 +422,52 @@ public class calc extends javax.swing.JFrame {
 	}
     }
 
+    //this is used to add '0' to the available string in the textfield
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {
         String number=jTextField1.getText()+btn0.getText();
             jTextField1.setText(number);
     }
 
+    //this is used to add '00' to the available string stored in the textfield
     private void btn00ActionPerformed(java.awt.event.ActionEvent evt) {
         String number=jTextField1.getText()+btn00.getText();
             jTextField1.setText(number);
     }
 
-    private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) {
+	
+    //whenver these ('+' '-' '*' '/' '%') buttons are pressed the string available on the button stores in the 'operation' variable and the string whatever available in the textfield will be typecasted and stored in (double)'first' variable  
+    private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) { //'+'
         first=Double.parseDouble(jTextField1.getText());
 				jTextField1.setText("");
 				operation="+";
     }
 
-    private void btnMinusActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnMinusActionPerformed(java.awt.event.ActionEvent evt) { //'-'
        first=Double.parseDouble(jTextField1.getText());
 				jTextField1.setText("");
 				operation="-";
     }
 
-    private void btnMultiActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnMultiActionPerformed(java.awt.event.ActionEvent evt) { //'*'
        first=Double.parseDouble(jTextField1.getText());
 				jTextField1.setText("");
 				operation="*";
     }
 
-    private void btnDivActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnDivActionPerformed(java.awt.event.ActionEvent evt) { //'/'
         first=Double.parseDouble(jTextField1.getText());
 				jTextField1.setText("");
 				operation="/";
     }
 
-    private void btnPercentActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnPercentActionPerformed(java.awt.event.ActionEvent evt) { //'%'
         first=Double.parseDouble(jTextField1.getText());
 				jTextField1.setText("");
 				operation="%";
     }
+	
+	
+	
     public static void main(String args[]) {
 
         try {
